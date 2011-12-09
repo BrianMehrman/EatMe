@@ -29,7 +29,7 @@ EatMe::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address                => "mail.eatmet.inventiongarden.com",
+    :address                => "mail.eatme.inventiongarden.com",
     :port                   => 587,
     :domain                 => "eatme.inventiongarden.com",
     :user_name              => "Brian",
