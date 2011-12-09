@@ -32,7 +32,7 @@ EatMe::Application.configure do
     :address                => "mail.eatme.inventiongarden.com",
     :port                   => 587,
     :domain                 => "eatme.inventiongarden.com",
-    :user_name              => "Brian",
+    :user_name              => "support@eatme.inventiongarden.com",
     :password               => "M0uthFu11",
     :authentication         => "plain",
     :enable_starttls_auto   => true
