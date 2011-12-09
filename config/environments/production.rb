@@ -27,6 +27,16 @@ EatMe::Application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address                => "mail.eatmet.inventiongarden.com",
+    :port                   => 587,
+    :domain                 => "eatme.inventiongarden.com"
+    :user_name              => "Brian",
+    :password               => "M0uthFu11",
+    :authentication         => "plain",
+    :enable_starttls_auto   => true
+  }
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
