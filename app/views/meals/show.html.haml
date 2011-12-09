@@ -1,0 +1,13 @@
+#meal-summary.backplate-top
+  %h2 
+    This meal
+
+  %p Total Calories #{count_calories(@meal)}
+
+.backplate-bottom
+  What you ate:
+  %table
+    - @meal.consumptions.each do |consumption|
+      %tr 
+        %td #{consumption.weight.amount}#{consumption.weight.Msre_Desc}
+        %td #{link_to consumption.food.simple_name, food_path(consumption.food) } 

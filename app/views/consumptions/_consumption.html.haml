@@ -1,0 +1,10 @@
+%tr
+  %td
+    = link_to consumption.food.simple_name, food_path( consumption.food )
+    = hidden_field_tag "food_ids[]", consumption.food.id
+  %td
+    = label_tag "Measurement"
+    = number_field_tag "measurements[]", consumption.measurement,:min => 0, :step => 0.1 
+  %td
+    = label_tag "Unit"
+    = select_tag "units[]", options_from_collection_for_select( consumption.food.units_of_measurement, :id, :Msre_Desc), :promt => "Select something"

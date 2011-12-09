@@ -1,0 +1,30 @@
+= form_for @user do |f|
+  -if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation, "Password Confirmation"
+    = f.password_field :password_confirmation
+  .actions
+    = f.submit 'Save'
+
+  #menu-form
+    %h2 Meals
+    - @user.meals.each do |meal|
+      = count_calories(meal)
+      = time_ago_in_words(meal.created_at.to_time) + " ago"
+      = link_to "show", meal_path(meal), :remote => true
+      = link_to "edit", edit_meal_path(meal)

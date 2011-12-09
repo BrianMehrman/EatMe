@@ -1,0 +1,12 @@
+%h2 Meals
+%ul.meal-list
+  - meals.reverse!.each do |meal|
+    %li.small-round.round-shadow
+      %a(href="#{meal_path(meal)}")
+        %span.big
+          #{count_calories(meal)} calories 
+        %span.small 
+          #{time_ago_in_words(meal.created_at.to_time)} ago
+
+.clear
+= link_to "Add Meal", new_meal_path

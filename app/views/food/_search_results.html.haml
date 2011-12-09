@@ -1,0 +1,8 @@
+- results.each do |result|
+  %tr
+    %td.add-food
+      = link_to "+", add_new_food_path(:food_id => result.id), :remote => true 
+
+    %td.food-item
+      = link_to result.Shrt_Desc, food_path(result)
+      = hidden_field_tag "food_ids[]", result.id

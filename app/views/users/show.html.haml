@@ -1,0 +1,15 @@
+#user-profile.backplate-top
+  %p
+    %bUser Name:
+    = @user.name
+  
+  %p
+    %strong Email:
+    = @user.email
+
+  = link_to 'Edit', edit_user_path(@user)
+  |
+  = link_to 'Back', root_path 
+
+.user-meals.backplate-bottom
+  = render 'meals/list_meal', :meals => todays_meals(@user)

@@ -1,0 +1,4 @@
+module ConsumptionsHelper
+  
+
+end

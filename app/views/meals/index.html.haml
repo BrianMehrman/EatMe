@@ -1,0 +1,12 @@
+%h1 Meals
+
+%ul.meal-list
+  - @meals.each do |meal|
+    %li(id="#{dom_id(meal)}")
+      %div
+        = time_ago_in_words(meal.created_at.to_time) + " ago"
+        = count_calories(meal)
+
+%br
+
+= link_to 'New Meal', new_meal_path

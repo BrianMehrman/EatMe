@@ -1,0 +1,27 @@
+!!! html
+%html
+  %head
+    %title Eat Me
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    #container
+      #header
+        %h1= link_to 'Eat Me Healthy', root_path
+        #login
+          - if logged_in?
+            Hello,
+            = link_to current_user.name, user_path(current_user)
+            |
+            = link_to "Sign Out", sessions_path, :method => :delete
+          - else
+            = link_to "Sign Up", new_user_path
+            |
+            = link_to "Sign In", new_sessions_path
+        .clear
+
+      #content
+        = yield
+        .clear
