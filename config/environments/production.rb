@@ -35,7 +35,7 @@ EatMe::Application.configure do
     :user_name              => "support@eatme.inventiongarden.com",
     :password               => "M0uthFu11",
     :authentication         => "plain",
-    :enable_starttls_auto   => true
+    :enable_starttls_auto   => false
   }
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
