@@ -1,0 +1,23 @@
+%h2 What did you just eat?
+
+= form_for @meal do |form|
+  %table#meals-list
+    %thead
+      %tr
+        %td
+          Name
+        %td
+          Amount
+        %td
+        %td
+    %tbody
+
+  %p 
+    meal total here:
+    %span#total
+      = 0
+  = form.submit "Submit"
+
+#search-bar.round.round-shadow
+  = render 'food/search_bar'
+  .clear

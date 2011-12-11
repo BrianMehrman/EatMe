@@ -1,0 +1,59 @@
+= form_for @food, :class=>"backplate-bottom" do |f|
+  -if @food.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@food.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @food.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Long Description"
+    = f.text_field :Long_Desc
+
+  .field
+    = f.label "Short Description"
+    = f.text_field :Shrt_Desc
+  
+  .field
+    = f.label "Company Name"
+    = f.text_field :ComName
+
+  .field
+    = f.label "Mancufacturer's Name"
+    = f.text_field :ManufacName
+  
+  .field
+    = f.label "Food group"
+    = collection_select(:food, :FdGrp_Cd, FdGroup.all, :id, :FdGrp_Desc, :prompt => true)
+
+  .field
+    %h1 Nutrients
+    = f.fields_for :nutrition_facts do |fact_form|
+      = fact_form.label "Value"
+      = fact_form.number_field :Nutr_Val
+
+      = fact_form.label "Nutrient Type"
+      = fact_form.collection_select :Nutr_No, NutrDef.all, :id, :NutrDesc, :prompt => true
+
+      = fact_form.label "Min Value"
+      = fact_form.number_field :Min
+
+      = fact_form.label "Max Value"
+      = fact_form.number_field :Max
+
+      = fact_form.label "Number of studies"
+      = fact_form.number_field :Num_Studies
+
+      = fact_form.label "Degrees of freedom"
+      = fact_form.number_field :DF
+
+      = fact_form.label "Low 95% error bound"
+      = fact_form.number_field :Low_EB
+
+      = fact_form.label "Upper 95% error bound"
+      = fact_form.number_field :Up_EB
+
+  .action
+    = f.submit 'Save'
+
+

@@ -1,0 +1,12 @@
+%h2 Tracks
+%ul.track-list
+  - tracks.each do |track|
+    %li.round-shadow.small-round
+      %a(href="#{track_path(track)}")
+        %span.big
+          Show track info
+        %span.small
+          extra info
+
+.clear
+= link_to "Add Track", new_track_path

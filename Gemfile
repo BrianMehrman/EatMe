@@ -5,9 +5,11 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'paperclip'
+gem 'browser'
 
 group :development do
   gem 'sqlite3'
+  gem 'pg', '0.11.0'
   gem 'mysql2'
 end
 

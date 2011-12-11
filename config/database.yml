@@ -3,7 +3,8 @@
 #
 #   Ensure the mysql2 gem is defined in your Gemfile
 #   gem 'mysql2'
-development:
+
+source:
   adapter: mysql2
   encoding: utf8
   reconnect: false
@@ -13,18 +14,29 @@ development:
   password: newpassword
   socket: /tmp/mysql.sock
 
+target:
+  adapter: postgresql
+  encoding: utf8
+  database: eatme_development
+  pool: 5
+  username: eatme1
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: eatme_development
+  pool: 5
+  username: eatme1
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  reconnect: false
   database: eatme_test
   pool: 5
-  username: root
-  password: newpassword
-  socket: /tmp/mysql.sock
+  username: eatme1
   
 
 production:

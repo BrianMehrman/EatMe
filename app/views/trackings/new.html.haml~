@@ -1,0 +1,5 @@
+%h1 Trackings#new
+
+= render "form"
+
+= link_to :back

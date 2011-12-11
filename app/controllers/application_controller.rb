@@ -1,7 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :logged_in?,:current_user
+  helper_method :signed_in?, :sign_user_in, :sign_user_out, :logged_in?,:current_user
+  
+  before_filter :detect_browser
+    
+  def detect_browser
+    #require "browser"
+
+    user_agent =  request.env['HTTP_USER_AGENT'].downcase
+    if user_agent
+      @browser = Browser.new(:ua => user_agent, :accept_language => "en-us")
+    else
+      @browser = nil
+    end
+  end
 
   def sign_user_in(user)
     session[:user_id] = user.id

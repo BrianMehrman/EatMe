@@ -1,0 +1,4 @@
+class AddUserToFoodDes < ActiveRecord::Migration
+  def change
+  end
+end

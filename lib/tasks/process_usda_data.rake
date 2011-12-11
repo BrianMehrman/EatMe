@@ -278,15 +278,15 @@ namespace :process_usda_data do
   
   # Run it all
   desc "Run all process tasks"
-  task :start => [  :load_food_description,
-                    :load_nutrient_data,
-                    :load_weight,
-                    :load_footnote,
-                    :load_food_group_description,
-                    :load_langual_factor,
-                    :load_langual_factors_description,
-                    :load_nutrient_definition,
-                    :load_source_code,
+  task :start => [  #:load_food_description,
+                    #:load_nutrient_data,
+                    #:load_weight,
+                    #:load_footnote,
+                    #:load_food_group_description,
+                    #:load_langual_factor,
+                    #:load_langual_factors_description,
+                    #:load_nutrient_definition,
+                    #:load_source_code,
                     :load_data_derivation_description,
                     :load_sources_of_data,
                     :load_sources_of_data_link

@@ -1,0 +1,2 @@
+%h1 Editing #{@tracking.track.name}
+%p Find me in app/views/trackings/edit.html.haml

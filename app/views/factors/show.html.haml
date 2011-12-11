@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Ndb no:
+  = @factor.NDB_No
+%p
+  %b Track:
+  = @factor.track_id
+
+= link_to 'Edit', edit_factor_path(@factor)
+\|
+= link_to 'Back', factors_path

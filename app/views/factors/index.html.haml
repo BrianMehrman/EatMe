@@ -1,0 +1,21 @@
+%h1 Listing factors
+
+%table
+  %tr
+    %th Ndb no
+    %th Track
+    %th
+    %th
+    %th
+
+  - @factors.each do |factor|
+    %tr
+      %td= factor.NDB_No
+      %td= factor.track_id
+      %td= link_to 'Show', factor
+      %td= link_to 'Edit', edit_factor_path(factor)
+      %td= link_to 'Destroy', factor, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Factor', new_factor_path

@@ -1,0 +1,16 @@
+= form_for @factor do |f|
+  -if @factor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@factor.errors.count, "error")} prohibited this factor from being saved:"
+      %ul
+        - @factor.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :NDB_No
+    = f.text_field :NDB_No
+  .field
+    = f.label :track_id
+    = f.number_field :track_id
+  .actions
+    = f.submit 'Save'

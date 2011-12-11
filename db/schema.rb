@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207174603) do
+ActiveRecord::Schema.define(:version => 20111210211935) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "food_id"
@@ -46,7 +46,14 @@ ActiveRecord::Schema.define(:version => 20111207174603) do
 
   create_table "deriv_cds", :force => true do |t|
     t.string   "Deriv_Cd"
-    t.string   "Deriv_Desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "Deriv_Desc"
+  end
+
+  create_table "factors", :force => true do |t|
+    t.string   "NDB_No"
+    t.integer  "track_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20111207174603) do
     t.float    "CHO_Factor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "footnotes", :force => true do |t|
@@ -144,6 +152,23 @@ ActiveRecord::Schema.define(:version => 20111207174603) do
   create_table "src_cds", :force => true do |t|
     t.string   "Src_Cd"
     t.string   "SrcCd_Desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trackings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "track_id"
+    t.float    "goal"
+    t.time     "time_frame"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.string   "name"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

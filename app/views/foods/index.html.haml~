@@ -1,0 +1,12 @@
+%h1 USDA Food bank
+- if signed_in?
+  #user-food
+    %h2  #{current_user.name}'s food
+    = render 'user_food', {:user => current_user}
+    = link_to "Add Food", new_food_path
+#search-bar.backplate-top 
+  = render 'search_bar'
+#search-results
+  %h2 Search Results:
+  %ul
+
