@@ -13,3 +13,6 @@
 
 .user-meals.backplate-bottom
   = render 'meals/list_meal', :meals => todays_meals(@user)
+
+%h1.backplate-top
+  = render 'trackings/list', :tracks => @user.trackings

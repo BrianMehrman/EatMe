@@ -3,10 +3,6 @@
   %head
     %title Eat Me
     = stylesheet_link_tag    "application"
-    - if @browser.mobile?
-      = stylesheet_link_tag "mobile", :cache => true
-    - else
-      = stylesheet_link_tag "desktop", :cache => true
     
     = javascript_include_tag "application"
     = csrf_meta_tags

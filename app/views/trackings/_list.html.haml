@@ -1,6 +1,12 @@
 %h2 Track Listing
 
-%ul
-  = trackings.each do |tracking|
-    %li 
-      tracking breakdown
+%ul.tracking-list
+  - trackings.each do |tracking|
+    %li.round-shadow.small-round 
+      %a(href="#{tracking_path(tracking)}")
+        %span.big 
+          tracking breakdown
+        %span.small
+          extra info
+.clear
+= link_to "Add Tracking", new_tracking_path

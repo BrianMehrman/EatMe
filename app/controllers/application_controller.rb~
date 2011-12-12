@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :detect_browser
     
   def detect_browser
-    require "browser"
+    #require "browser"
 
     user_agent =  request.env['HTTP_USER_AGENT'].downcase
     if user_agent
@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
       @browser = nil
     end
   end
-
+  
+  # user filters
   def sign_user_in(user)
     session[:user_id] = user.id
   end
@@ -47,4 +48,33 @@ class ApplicationController < ActionController::Base
       redirect_to landing_path, :notice => "You must be logged in to see this page."
     end
   end
+
+  # tracking filters
+  def user_trackings
+    if @user
+      @trackings = @ser.trackings
+    else
+      @trackings = []    
+    end
+  end
+
+  # food filters
+  def user_generated_food
+  end
+  
+  def user_generated_nutrition
+
+  end
+
+  # meal filters
+  def user_meals
+    
+  end
+
+  # track filters
+  def available_tracks
+
+  end
+  
+
 end

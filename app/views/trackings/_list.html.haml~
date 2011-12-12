@@ -1,2 +1,6 @@
-%h1 Trackings#update
-%p Find me in app/views/trackings/update.html.haml
+%h2 Track Listing
+
+%ul
+  = trackings.each do |tracking|
+    %li 
+      tracking breakdown
