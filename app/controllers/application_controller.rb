@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def detect_browser
     #require "browser"
 
-    user_agent =  request.env['HTTP_USER_AGENT'].downcase
+    user_agent =  request.env['HTTP_USER_AGENT']
     if user_agent
       @browser = Browser.new(:ua => user_agent, :accept_language => "en-us")
     else

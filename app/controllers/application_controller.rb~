@@ -8,9 +8,22 @@ class ApplicationController < ActionController::Base
   def detect_browser
     #require "browser"
 
-    user_agent =  request.env['HTTP_USER_AGENT'].downcase
+    user_agent =  request.env['HTTP_USER_AGENT']
     if user_agent
+      puts user_agent
       @browser = Browser.new(:ua => user_agent, :accept_language => "en-us")
+      
+      puts @browser.safari?
+      puts @browser.opera?
+      puts @browser.mobile?
+      puts @browser.firefox?
+      puts @browser.ie?
+      puts @browser.ie6?        # this goes up to 9
+      puts @browser.capable?    # supports some CSS 3
+      puts @browser.platform    # return :mac, :windows, :linux or :other
+      puts @browser.mac?
+      puts @browser.windows?
+      puts @browser.linux?
     else
       @browser = nil
     end
@@ -52,7 +65,7 @@ class ApplicationController < ActionController::Base
   # tracking filters
   def user_trackings
     if @user
-      @trackings = @ser.trackings
+      @trackings = @user.trackings
     else
       @trackings = []    
     end

@@ -4,6 +4,22 @@
     %title Eat Me
     = stylesheet_link_tag    "application"
     
+    - puts @browser.safari?
+    - puts @browser.opera?
+    - puts @browser.mobile?
+    - puts @browser.firefox?
+    - puts @browser.ie?
+    - puts @browser.ie6?        # this goes up to 9
+    - puts @browser.capable?    # supports some CSS 3
+    - puts @browser.platform    # return :mac, :windows, :linux or :other
+    - puts @browser.mac?
+    - puts @browser.windows?
+    - puts @browser.linux?
+    - if @browser.firefox?
+      = stylesheet_link_tag "mobile"
+    - else
+      = stylesheet_link_tag "desktop"
+
     = javascript_include_tag "application"
     = csrf_meta_tags
 
