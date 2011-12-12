@@ -4,9 +4,9 @@
     %title Eat Me
     = stylesheet_link_tag    "application"
     - if @browser.mobile?
-      = stylesheet_link_tag    "mobile.css"   
+      = stylesheet_link_tag "mobile"
     - else
-      = stylesheet_link_tag    "desktop.css"
+      = stylesheet_link_tag "desktop"
     
     = javascript_include_tag "application"
     = csrf_meta_tags
