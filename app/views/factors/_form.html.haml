@@ -5,12 +5,14 @@
       %ul
         - @factor.errors.full_messages.each do |msg|
           %li= msg
+  = f.hidden_field :track_id, :value => params[:track_id]
+  .field
+    = f.label :name
+    = f.text_field :name
+  #factor-type.field
+    = f.label :factoree
+    = f.select :factoree_type, factor_types.map{|t| [t.type, t.name] }, :prompt => "Please select a type"
+  #factoree_div.field
 
-  .field
-    = f.label :NDB_No
-    = f.text_field :NDB_No
-  .field
-    = f.label :track_id
-    = f.number_field :track_id
   .actions
     = f.submit 'Save'

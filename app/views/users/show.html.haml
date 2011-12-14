@@ -1,4 +1,5 @@
-#user-profile.backplate-top
+%h1.backplate-top User Info
+#user-profile.backplate-bottom
   %p
     %bUser Name:
     = @user.name
@@ -10,9 +11,10 @@
   = link_to 'Edit', edit_user_path(@user)
   |
   = link_to 'Back', root_path 
-
+%h1.backplate-top Meals
 .user-meals.backplate-bottom
   = render 'meals/list_meal', :meals => todays_meals(@user)
 
-%h1.backplate-top
+%h1.backplate-top Tracks
+.backplate-bottom
   = render 'trackings/list', :trackings => @user.trackings

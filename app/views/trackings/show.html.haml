@@ -1,4 +1,4 @@
-%h2 #{@tracking.track.name} for #{@user.name}
+%h2 #{@tracking && @tracking.track ? @tracking.track.name : "None"} for #{@user.name}
 
 %p
   This is where the breakdown of the tracking info goes.

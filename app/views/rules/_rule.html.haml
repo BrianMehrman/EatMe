@@ -1,0 +1,11 @@
+%li(id="#{( rule && rule.id ? dom_id(rule) : '') }")
+  = hidden_field_tag "rules[track_ids][]", (track ? track.id : 0)
+  .field
+    = label_tag "name"
+    = text_field_tag "rules[names][]", (rule ? rule.name : "")
+  .field
+    = label_tag "body"
+    = text_field_tag "rules[bodies][]", (rule ? rule.body : "")
+  - if rule && rule.id
+    .delete.field
+      = link_to "Delete", rule_path(rule), :method => :delete, :remote => true

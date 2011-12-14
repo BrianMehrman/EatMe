@@ -2,11 +2,13 @@
 
 %ul.tracking-list
   - trackings.each do |tracking|
-    %li.round-shadow.small-round 
+    %li.round-shadow.small-round(id="#{ dom_id(tracking)}") 
       %a(href="#{tracking_path(tracking)}")
         %span.big 
-          tracking breakdown
+          = todays_tracking_results(tracking)
         %span.small
-          extra info
+          = tracking.track.unit
+
+      = link_to "delete", tracking_path(tracking), :method => :delete, :remote=>true
 .clear
 = link_to "Add Tracking", new_tracking_path

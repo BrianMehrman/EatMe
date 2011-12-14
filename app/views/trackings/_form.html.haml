@@ -5,22 +5,18 @@
       %ul
         - @tracking.errors.full_messages.each do |msg|
           %li= msg
-  
-  .field
-    = f.label :name
-    = f.text_field :name
-
+  = f.hidden_field :user_id, :value => @user.id 
   .field
     = f.label :track
-    = collection_select(:tracking, :track, Track.all, :id, :name)
+    = collection_select(:tracking, :track_id, Track.all, :id, :name)
 
   .field
     = f.label :goal
     = f.number_field :goal, :step => 0.01
 
   .field
-    = f.lable :time_frame
-    = f.time_field :time_frame
+    = f.label :time_frame
+    = f.time_select :time_frame
 
   .actions
     = f.submit 'Save'

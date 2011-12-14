@@ -1,12 +1,14 @@
 %p#notice= notice
 
 %p
-  %b Ndb no:
-  = @factor.NDB_No
+  %b Name:
+  = @factor.name
 %p
   %b Track:
-  = @factor.track_id
-
+  = @factor.track ? @factor.track.name : "Empty"
+%p 
+  %b Factoree:
+  = @factor.factoree_type
 = link_to 'Edit', edit_factor_path(@factor)
 \|
 = link_to 'Back', factors_path

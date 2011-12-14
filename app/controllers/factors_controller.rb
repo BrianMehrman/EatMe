@@ -25,9 +25,14 @@ class FactorsController < ApplicationController
   # GET /factors/new.json
   def new
     @factor = Factor.new
-
+    if params[:track_id]
+      @track = Track.find(params[:track_id])
+    else
+      @track = nil
+    end
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @factor }
     end
   end
@@ -76,7 +81,8 @@ class FactorsController < ApplicationController
     @factor.destroy
 
     respond_to do |format|
-      format.html { redirect_to factors_url }
+      format.html { redirect_to :back }
+      format.js
       format.json { head :ok }
     end
   end

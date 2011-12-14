@@ -1,0 +1,8 @@
+out = $("#factor-list").append("<%= escape_javascript( render 'factors/factor', {:track => @track, :factor => @factor} )%>");
+$(out).find("li").last().find("select").change( function() {
+    var factor_type = this.value;
+    var target = $(this).parent().parent().find(".factoree_div");
+    $.get('/factorees/index', { type: factor_type }, function(data) {
+      target.html(data);
+    });
+});

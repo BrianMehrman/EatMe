@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210211935) do
+ActiveRecord::Schema.define(:version => 20111213225021) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "food_id"
@@ -52,10 +52,12 @@ ActiveRecord::Schema.define(:version => 20111210211935) do
   end
 
   create_table "factors", :force => true do |t|
-    t.string   "NDB_No"
     t.integer  "track_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "factoree_id"
+    t.string   "factoree_type"
   end
 
   create_table "fd_groups", :force => true do |t|
@@ -149,6 +151,14 @@ ActiveRecord::Schema.define(:version => 20111210211935) do
     t.datetime "updated_at"
   end
 
+  create_table "rules", :force => true do |t|
+    t.string   "name"
+    t.string   "body"
+    t.integer  "track_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "src_cds", :force => true do |t|
     t.string   "Src_Cd"
     t.string   "SrcCd_Desc"
@@ -171,6 +181,7 @@ ActiveRecord::Schema.define(:version => 20111210211935) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit"
   end
 
   create_table "users", :force => true do |t|

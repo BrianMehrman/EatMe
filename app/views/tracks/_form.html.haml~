@@ -1,0 +1,35 @@
+= form_for @track do |f|
+  -if @track.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@track.errors.count, "error")} prohibited this track from being saved:"
+      %ul
+        - @track.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :author_id, @user.id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :factors
+    = fields_for @track.factors do |factor|
+      .field
+        = factor.label :type
+        = collection_select :factor, :type_id, FactorType.all, :id, :name, :prompt => "Please select a type"
+        = observe_field(:factor, :url => { :action => :update_factoree_control},
+          :update => :factoree_div,
+          :with => :factor)
+      #factoree_div.field
+        no factor type set
+    = link_to "Add factor", new_factor_path
+  .field
+    = f.label :rules
+    = fields_for @track.rules do |rule|
+      .field
+        = rule.label :name
+
+      .field
+        = rule.label :body
+
+    = link_to "Add rule", new_rule_path
+  .actions
+    = f.submit 'Save'

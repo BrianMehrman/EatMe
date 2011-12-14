@@ -12,7 +12,7 @@ class TrackingsController < ApplicationController
   end
 
   def show
-    @tracking = @user.trackings.find(params[:id])
+    @tracking = @user.trackings.find_by_id(params[:id])
     
     respond_to do |format|
       format.html
@@ -35,7 +35,7 @@ class TrackingsController < ApplicationController
 
     respond_to do |format|
       if @tracking.save
-        UserMailer.new_tracking_email(@tracking).deliver  
+        #UserMailer.new_tracking_email(@user,@tracking).deliver  
         format.html { redirect_to @tracking, notice: "Tracking was successfully created." }
         format.js
         format.json { render json: @tracking, status: :created, location: @tracking }
@@ -79,8 +79,9 @@ class TrackingsController < ApplicationController
   end
 
   def destroy
-    @tracking = @user.tracking.find(params[:id])
+    @tracking = @user.trackings.find(params[:id])
     
+    @tracking.destroy
     respond_to do |format|
       if @tracking 
         format.html { redirect_to :back, notice: "The deed has been done!" }

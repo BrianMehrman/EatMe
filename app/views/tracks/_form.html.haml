@@ -5,12 +5,26 @@
       %ul
         - @track.errors.full_messages.each do |msg|
           %li= msg
-
+  = f.hidden_field :author_id, :value => @user.id
   .field
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :author_id
-    = f.number_field :author_id
+    = f.label :factors
+    %ul#factor-list
+      = fields_for :factors do |factor_form|
+        - @track.factors.each do |factor|
+          = render 'factors/factor', {:track => @track, :factor => factor}
+    = link_to "Add Factor", new_factor_path(:track_id => @track.id), :remote => true
+  .field
+    = f.label :rules
+    %ul#rule-list
+      = fields_for :rules do |rule_form|
+        - @track.rules.each do |rule|
+          = render 'rules/rule', {:track => @track, :rule => rule}
+    = link_to "Add rule", new_rule_path, :remote => true
+  .field
+    = f.label :unit
+    = f.text_field :unit
   .actions
     = f.submit 'Save'

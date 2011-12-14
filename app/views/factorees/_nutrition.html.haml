@@ -1,0 +1,3 @@
+= label_tag "Nutrients: "
+= select_tag "factors[factoree_ids][]",options_for_select(NutrDef.all.map { |m| [m.NutrDesc, m.id]}, (factor && factor.factoree_id ? factor.factoree_id : nil) ), :prompt => "Please select a nutrient"
+

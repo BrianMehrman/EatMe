@@ -1,4 +1,6 @@
 class TracksController < ApplicationController
+  before_filter :require_user
+
   # GET /tracks
   # GET /tracks.json
   def index
@@ -57,6 +59,26 @@ class TracksController < ApplicationController
   # PUT /tracks/1.json
   def update
     @track = Track.find(params[:id])
+    
+    if params[:rules]
+      rules = params[:rules][:names].collect.with_index { |name, i| {:name => name, :track_id => params[:rules][:track_ids][i], :body => params[:rules][:bodies][i] } } 
+      
+      rules.each do |r|
+        if not @track.rules.find_by_name(r[:name])
+          @track.rules.build(r)
+        end
+      end
+    end
+
+    if params[:factors]
+      factors = params[:factors][:names].collect.with_index { |name, i| {:name => name, :track_id => params[:factors][:track_ids][i], :factoree_type => params[:factors][:factoree_type][i], :factoree_id => params[:factors][:factoree_ids][i]} }
+  
+      factors.each do |f|
+        if not @track.factors.find_by_name(f[:name])
+          @track.factors.build(f)
+        end
+      end
+    end
 
     respond_to do |format|
       if @track.update_attributes(params[:track])

@@ -1,6 +1,5 @@
 module MealsHelper
-
-	def count_calories(meal)
+  def count_calories(meal)
     total = 0
     meal.consumptions.each do |consumption| 
       consumption.food.nutrition_facts.each do |fact|

@@ -1,5 +1,7 @@
 EatMe::Application.routes.draw do
 
+  get "factorees/index"
+
   get "add_food/new", :as => "add_new_food" 
 
   get "add_food/create"
@@ -21,10 +23,10 @@ EatMe::Application.routes.draw do
   #get "food/:id", :controller => "food", :action =>"show", :as => 'food'
   post "foods/search", :controller => "foods", :action=>"search", :as => "food_search"
 
-  resources :tracks do
-    resources :factors
-  end
-
+  resources :tracks
+  resources :factors
+  
+  resources :rules
   resources :trackings
   resources :imports
   resources :users

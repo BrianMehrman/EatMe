@@ -14,16 +14,13 @@ $(document).ready(function() {
 	$("h2.trigger").click(function(){
 		$(this).toggleClass("active").next().slideToggle();
 	});
-  // ajax call to sever to update tracks
-  $(".food .measurement").click(
-    // send info to server
-    // 
-    // return updated calories
-  );
-  // ajax call to server to update tracks
-  $(".food .unit").click(
-  // send info to server
-  //
-  // return updated calories ( or more abstractly update the tracks shown
-  );
+
+  $(".factor-type select").change(function() {
+    var factor_type = this.value;
+    var target = $(this).parent().parent().find(".factoree_div")
+    $.get('/factorees/index', { type: factor_type }, function(data) {
+      target.html(data); 
+    });
+  });
 });
+

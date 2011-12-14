@@ -1,0 +1,27 @@
+$shadow_color:#B3B3B3;
+.backplate-top {
+  -webkit-border-radius: 32px 32px 0 0;
+  -moz-border-radius: 32px 32px 0 0;
+  border-radius: 32px 32px 0 0;
+
+  display:inline-block; 
+  margin-top: 0.2em;
+  padding:1em;
+
+  -webkit-box-shadow: $shadow_color 0 0 4px;
+  -moz-border-radius: $shadow_color 0 0 4px;
+  box-shadow: $shadow_color 0 0 4px;
+}
+
+.backplate-bottom {
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+
+  margin-bottom: 0.5em;
+  padding:1em;
+
+  -webkit-box-shadow: inset #B3B3B3 0 0 4px;
+  -moz-box-shadow: inset #B3B3B3 0 0 4px;
+  box-shadow: inset #B3B3B3 0 0 4px;
+}

@@ -1,0 +1,17 @@
+%li(id="#{(factor && factor.id ? dom_id(factor) : '') }")
+  = hidden_field_tag "factors[track_ids][]",  (track ? track.id : 0)
+  .field
+    = label_tag "Name"
+    = text_field_tag "factors[names][]", (factor ? factor.name: "")
+  .factor-type.field
+    = label_tag "Type"
+    = select_tag "factors[factoree_type][]", options_for_select(factor_types.map{|t| [t.name, t.type] }, (factor ? factor.factoree_type: nill)), :prompt => "Please select a type"
+
+  .factoree_div.field
+    - if factor && factor.factoree_type
+      = render get_factor_partial(factor.factoree_type), {:factor => factor}
+
+  - if factor && factor.id
+    .delete.field
+      = link_to "Delete", factor_path(factor), :method => :delete, :remote=>true
+  

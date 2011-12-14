@@ -1,0 +1,2 @@
+= label_tag "Groups"
+= select_tag "factors[factoree_ids][]" , options_for_select( FdGroup.all.map {|m| [m.FdGrp_Desc, m.id]}, ( factor && factor.factoree_id ? factor.factoree_id : nil)), :promp => "Please select a group."

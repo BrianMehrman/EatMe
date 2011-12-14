@@ -10,6 +10,7 @@ class FoodDes < ActiveRecord::Base
   belongs_to :food_group, :class_name => "FdGroup", :foreign_key => "FdGrp_Cd", :primary_key => "FdGrp_CD"
 
   belongs_to :user, :class_name => "User", :foreign_key => "author_id", :primary_key => "id"
+  has_many :factors, :as => :factoree
 
   def simple_name
     # TODO fix this hacky shit
